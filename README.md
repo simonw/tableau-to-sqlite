@@ -24,7 +24,7 @@ You can pass that directly to the tool:
     tableau-to-sqlite tableau.db \
       https://results.mo.gov/t/COVID19/views/VaccinationsDashboard/Vaccinations
 
-This will create a SQLite database called `tableau.db` containing one table for each of the worksheepts in that dashboard.
+This will create a SQLite database called `tableau.db` containing one table for each of the worksheets in that dashboard.
 
 If the dashboard is hosted on https://public.tableau.com/ you can instead provide the view name. This will be two strings separated by a `/` symbol - something like this:
 
