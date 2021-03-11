@@ -10,10 +10,7 @@ import sqlite3
     type=click.Path(file_okay=True, dir_okay=False, allow_dash=False),
     required=True,
 )
-@click.argument(
-    "tableau_views",
-    nargs=-1
-)
+@click.argument("tableau_views", nargs=-1)
 @version_option()
 def cli(db_path, tableau_views):
     """Fetch data from Tableau into a SQLite database
