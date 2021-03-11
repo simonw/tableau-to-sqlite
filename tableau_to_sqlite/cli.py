@@ -22,11 +22,17 @@ def cli(db_path, tableau_views):
 
     For example:
 
-        tableau-to-sqlite tableau.db \
-            OregonCOVID-19VaccineProviderEnrollment/COVID-19VaccineProviderEnrollment
+        tableau-to-sqlite tableau.db OregonCOVID-19VaccineProviderEnrollment/COVID-19VaccineProviderEnrollment
+
+    You can also pass a full URL to a Tableau dashboard, for example:
+
+        tableau-to-sqlite tableau.db https://results.mo.gov/t/COVID19/views/VaccinationsDashboard/Vaccinations
     """
     for view in tableau_views:
-        url = "https://public.tableau.com/views/{}".format(view)
+        if not (view.startswith("http://") or view.startswith("https://")):
+            url = "https://public.tableau.com/views/{}".format(view)
+        else:
+            url = view
         ts = TableauScraper()
         ts.loads(url)
         dashboard = ts.getDashboard()

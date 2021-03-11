@@ -15,7 +15,18 @@ Install this tool using `pip`:
 
 ## Usage
 
-You need to know the name of the Tableau view you want to import. This will be two strings separated by a `/` symbol - something like this:
+If you have the URL to a Tableau dashboard like this:
+
+https://results.mo.gov/t/COVID19/views/VaccinationsDashboard/Vaccinations
+
+You can pass that directly to the tool:
+
+    tableau-to-sqlite tableau.db \
+      https://results.mo.gov/t/COVID19/views/VaccinationsDashboard/Vaccinations
+
+This will create a SQLite database called `tableau.db` containing one table for each of the worksheepts in that dashboard.
+
+If the dashboard is hosted on https://public.tableau.com/ you can instead provide the view name. This will be two strings separated by a `/` symbol - something like this:
 
     OregonCOVID-19VaccineProviderEnrollment/COVID-19VaccineProviderEnrollment
 
@@ -23,8 +34,6 @@ Now run the tool like this:
 
     tableau-to-sqlite tableau.db \
         OregonCOVID-19VaccineProviderEnrollment/COVID-19VaccineProviderEnrollment
-
-This will create a SQLite database called `tableau.db` containing one table for each of the worksheepts in the view.
 
 ## Development
 
