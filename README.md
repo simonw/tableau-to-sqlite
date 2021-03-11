@@ -35,6 +35,24 @@ Now run the tool like this:
     tableau-to-sqlite tableau.db \
         OregonCOVID-19VaccineProviderEnrollment/COVID-19VaccineProviderEnrollment
 
+## Get the data as JSON or CSV
+
+If you're building a [git scraper](https://simonwillison.net/2020/Oct/9/git-scraping/) you may want to convert the data gathered by this tool to CSV or JSON to check into your repository.
+
+You can do that using [sqlite-utils](https://sqlite-utils.datasette.io/). Install it using `pip`:
+
+    pip install sqlite-utils
+
+You can dump out a table as JSON like so:
+
+    sqlite-utils rows tableau.db \
+       'Admin Site and County Map Site No Info' > tableau.json
+
+Or as CSV like this:
+
+    sqlite-utils rows tableau.db --csv \
+       'Admin Site and County Map Site No Info' > tableau.csv
+
 ## Development
 
 To contribute to this tool, first checkout the code. Then create a new virtual environment:
