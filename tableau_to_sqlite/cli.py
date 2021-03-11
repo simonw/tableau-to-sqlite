@@ -32,4 +32,8 @@ def cli(db_path, tableau_views):
         dashboard = ts.getDashboard()
         conn = sqlite3.connect(str(db_path))
         for worksheet in dashboard.worksheets:
-            worksheet.data.to_sql(worksheet.name, conn)
+            worksheet.data.to_sql(fix_name(worksheet.name), conn)
+
+
+def fix_name(name):
+    return name.replace("'", "").replace('"', "")
