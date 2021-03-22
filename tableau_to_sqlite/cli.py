@@ -35,9 +35,9 @@ def cli(db_path, tableau_views):
             url = view
         ts = TableauScraper()
         ts.loads(url)
-        dashboard = ts.getDashboard()
+        workboop = ts.getWorkbook()
         conn = sqlite3.connect(str(db_path))
-        for worksheet in dashboard.worksheets:
+        for worksheet in workboop.worksheets:
             worksheet.data.to_sql(fix_name(worksheet.name), conn)
 
 
