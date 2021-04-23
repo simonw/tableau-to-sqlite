@@ -31,7 +31,7 @@ setup(
         [console_scripts]
         tableau-to-sqlite=tableau_to_sqlite.cli:cli
     """,
-    install_requires=["click", "TableauScraper==0.1.3"],
+    install_requires=["click", "TableauScraper==0.1.11"],
     extras_require={"test": ["pytest", "vcrpy"]},
     tests_require=["tableau-to-sqlite[test]"],
     python_requires=">=3.6",
